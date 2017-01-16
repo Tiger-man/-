@@ -1,0 +1,163 @@
+
+##移动端页面  
+	
+	webapp (手机浏览器访问的页面)
+	webapp  模仿app
+
+##混合APP
+    
+    webAPP   用html  css  js 	最多调用手机摄像头、地理定位
+
+    原生APP   基于安卓平台、ios语言开发	调用手机任何硬件
+    		  开发周期长、审核时间长
+
+    混合APP   结合两者  html + js + css + 平台   调用手机硬件
+    										|
+    										|--提供插件
+
+##调试工具
+	
+	1.模拟器
+
+		chrome  调试工具
+
+	2.真机
+
+		1>电脑  手机  
+
+			连接同一个路由器
+
+			wamp   手机访问电脑ip
+
+		2>上传代码
+			
+			svn服务器
+
+			github服务器
+				
+				gh-pages   做演示   演示静态代码(无后台)
+					1.创建个人仓库
+					2.github ----> clone----> 电脑
+					3.创建分支   gh-pages   切换到gh-pages
+					3.开发  文件
+					4.提交修改
+					5.username.github.io/仓库名/文件名
+			
+			coding服务器	
+
+	github  代码仓库   私有库   
+		
+		1.创建个人仓库
+		2.github ----> clone----> 电脑
+		3.开发  文件
+		4.提交修改
+
+
+
+   
+#注意事项
+	
+	(webkit是苹果开发出来的)
+	
+	1.手机浏览器(几乎所有都是webkit内核)
+
+		UC (用户量最大)																weiblit  
+		
+		360																			weiblit
+		
+		百度                    													weiblit
+		
+		QQ浏览器-------------------------------------------------------------------	weiblit  X5内核
+		
+		搜狗																		weiblit
+		
+		猎豹																		weiblit
+		
+		手机自带浏览器:二次开发系统   自带浏览器      android原生自带浏览器			weiblit
+
+#view-port视口
+	
+	视口有三种:
+
+		 ① 布局视口    980px(默认)  document.documentElement.clientWidth
+
+		 ② 视觉视口    浏览器设备的大小   window.innerWidth
+
+		 			像素比 = 物理像素 / 逻辑像素
+
+					eg:	iPhone6   物理像素  750 * 1334(手机像素)	
+                                  
+								  逻辑像素  375 * 667
+					
+					iPhone6像素比 = 750 / 375 = 2
+
+					(！！！) 2   一个逻辑像素包含 (2*2) 个物理像素 (！！！)
+	
+					UI设计的是物理尺寸(考虑到图片像素点)
+	
+		 ③ 理想视口(完美视口) ideal viewport   
+
+		 			css中  1px = 1px 的逻辑像素
+						
+						在iPhone6中 1px的逻辑像素 = 4px 物理像素(像素比为2,宽高等比例)
+					
+					内容无论在任何屏幕显示大小一样
+
+			通过meta标签改视口			
+		
+				<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0">
+
+#布局
+	
+	1.百分比布局
+
+		宽度百分比
+
+		高度有可能是固定的值/auto
+
+		存在问题：
+
+			① 特殊布局不能完成
+
+			② 布局容器不存在padding
+
+	2.REM布局  rem  Css3新增单位   相对单位(相对于根元素html)   ie6 - - ie8 不支持
+
+		html{
+			font-size:100px;
+		}
+
+		font-size算法:
+
+			750px            375px
+
+			40px * 40px      20px * 20px
+
+			1px              0.5px
+
+
+			font-size: 逻辑像素/物理像素(为了不出现小数，给乘以100,下边设置时除以100)
+
+swiper插件
+
+		font-faimly:Helvetical
+
+
+		mall.360.cn
+
+
+##字体
+	
+	@font-face{
+		font-family:"";
+		url()
+	}   (不建议)
+
+
+	英文: Helvetical
+	中文: 不设置
+
+	pc 移动端   最小10px(逻辑像素)
+
+
+
